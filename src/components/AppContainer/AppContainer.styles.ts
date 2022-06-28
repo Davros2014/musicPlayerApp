@@ -3,7 +3,8 @@ import styled from 'styled-components';
 const StyledAppContainer = styled.div`
    position: relative;
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
+    min-height: 100vh;
     background-color: black;
     z-index: 0;
     &:before {

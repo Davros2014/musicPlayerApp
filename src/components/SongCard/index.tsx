@@ -46,7 +46,7 @@ const SongCard = ({artists}: CardProps) => {
                 </div>
                 <div className="likes-container">
                     <p>Likes: {likes}</p>
-                    {/* <button type="submit" onClick={handleClick}><i className="fa-solid fa-heart clicked"></i></button> */}
+                    <button type="submit"><i className="fa-solid fa-heart clicked"></i></button>
                 </div>
                 {/* music player here */}
             </div>

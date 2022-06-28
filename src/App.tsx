@@ -6,6 +6,7 @@ import {getData} from "./utils/data.utils"
 import SongCardList from './components/SongList';
 import SongCard from './components/SongCard';
 import AppContainer from './components/AppContainer';
+import Header from './components/Header';
 
 export const baseUrl = "https://api-stg.jam-community.com"
 
@@ -34,6 +35,7 @@ const App = () => {
   return (
     <AppContainer>
         {/*Add a header here*/}
+        <Header/>
         {/*List of songCards here - map over json data > list SongCard components*/}
         <SongCardList>
           {musicData.map((artist) => {

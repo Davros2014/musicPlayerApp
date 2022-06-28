@@ -5,6 +5,7 @@ const GlobalStyles = createGlobalStyle`
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      list-style-type: none;
     }
     body {
       box-sizing: border-box;
@@ -23,7 +24,6 @@ const GlobalStyles = createGlobalStyle`
       outline: none;
       background: none;
       border: none;
-
     }
 `;
 
