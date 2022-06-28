@@ -1,5 +1,12 @@
-import styled from 'styled-components';
+import React from 'react';
+import { StyledSongList } from './SongList.styles';
 
-export const StyledSongCard = styled.ul`
-    
-`
+const SongCardList = () => {
+    return (
+        <StyledSongList>
+            Song list goes here
+        </StyledSongList>
+    );
+};
+
+export default SongCardList;
