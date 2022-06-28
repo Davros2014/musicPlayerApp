@@ -1,10 +1,14 @@
 import React from 'react';
 import { StyledSongList } from './SongList.styles';
 
-const SongCardList = () => {
+interface Props {
+    children: JSX.Element[] | JSX.Element
+}
+
+const SongCardList = ({children}: Props) => {
     return (
         <StyledSongList>
-            Song list goes here
+            {children}
         </StyledSongList>
     );
 };

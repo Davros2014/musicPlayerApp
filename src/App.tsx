@@ -4,6 +4,8 @@ import {getData} from "./utils/data.utils"
 
 // components
 import SongCardList from './components/SongList';
+import SongCard from './components/SongCard';
+
 
 // styled components
 import styled from 'styled-components';
@@ -54,12 +56,16 @@ const App = () => {
     fetchUsers();
   }, []);
   return (
-
     <StyledAppContainer>
         {/*Add a header here*/}
         {/*List of songCards here - map over json data > list SongCard components*/}
-        <SongCardList/>
-
+        <SongCardList>
+          {musicData.map((artist) => {
+            return (
+              <SongCard key={artist.id} artists={artist}/>
+            )
+        })}
+        </SongCardList>
     </StyledAppContainer>
   )
 }
