@@ -34,9 +34,8 @@ const App = () => {
   }, []);
   return (
     <AppContainer>
-        {/*Add a header here*/}
         <Header/>
-        {/*List of songCards here - map over json data > list SongCard components*/}
+        <h1>Check out the currently trending Loudly soundtracks</h1>
         <SongCardList>
           {musicData.map((artist) => {
             return (

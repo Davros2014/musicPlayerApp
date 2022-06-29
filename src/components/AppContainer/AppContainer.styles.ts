@@ -20,6 +20,14 @@ const StyledAppContainer = styled.div`
         opacity: 0.2;
         z-index: -1;
     }
+    & h1 {
+        padding-top: 6rem;
+        color: rgb(0, 248, 196);
+        color: white;
+        font-size: clamp(1rem, 0.7vw, 2rem);
+        font-family: "Druk Wide Cy Web Medium";
+        text-align: center;
+    }
 `
 
 export default StyledAppContainer;

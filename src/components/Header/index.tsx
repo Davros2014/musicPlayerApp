@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyledHeader } from './Header.styles';
-import Logo from './../assets/Loudly_type_logo_wht.png'
+import Logo from './Loudly_type_logo_wht.png'
 
 // type HeaderProps = {
 //     children: JSX.Element[] | JSX.Element
@@ -9,7 +9,7 @@ import Logo from './../assets/Loudly_type_logo_wht.png'
 const Header = () => {
     return (
         <StyledHeader>
-            <img src='../../assets/Loudly_type_logo_wht.png' alt="companyLogo"/>
+            <img src={Logo} alt="companyLogo"/>
             <nav>
                 <li>Soundtracks</li>
                 <li>AI Studio</li>

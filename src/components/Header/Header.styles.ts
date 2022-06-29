@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
-    position: relative;
+    position: fixed;
     width: 100vw;
-    height: 5rem;
+    height: 4rem;
     background-color: rgb(0, 248, 196);
-    z-index: 0;
+    z-index: 101;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1rem 3rem;
+    justify-content: center;
+    padding: clamp(0.75rem, 1vw, 1rem) clamp(1.5rem, 2vw, 3rem);
+    @media (min-width: 768px) {
+        justify-content: space-between;;
+    }
     &:before {
         content: "";
         position: absolute;
@@ -24,14 +27,24 @@ export const StyledHeader = styled.header`
         z-index: -1;
     }
     & img {
-        background: red;
-        padding-left: 
+        width: 5rem;
+        filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.125));
     }
     & nav {
-        display: flex;
+        display: none;
+         @media (min-width: 768px) {
+            display: flex;
+        }
         & li {
-            margin-left: 1rem;
+            margin-left: 2rem;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
             cursor: pointer;
+            &:hover {
+                padding: 0.5rem 0;
+                border-color: white;
+                transition: 0.25s all ease-in-out;
+            }
         }
     }
 `

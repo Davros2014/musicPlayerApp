@@ -5,5 +5,5 @@ export const StyledSongList = styled.ul`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 5rem;
+    padding-top: 2rem;
 `

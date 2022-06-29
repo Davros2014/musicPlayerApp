@@ -1,22 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyledSongCard } from './SongCard.styles';
 
 // import types
 import { AppMusicProps } from "../../App";
+import AudioPlayer from '../AudioPlayer';
 
 type CardProps = {
   artists: AppMusicProps;
 //   handleClick: () => void;
 }
 
+const APIKEY = "___agAFTxkmMIWsmN9zOpM_6l2SkZPPy21LGRlxhYD8"
 
 
 const SongCard = ({artists}: CardProps) => {
-
-    // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    //     console.log("clicked")
-    // }
-    const {name, artist_name, cover_image_path, likes, song_genres} = artists;
+    const baseUrl = "https://api-stg.jam-community.com"
+    const {id, name, artist_name, cover_image_path, likes, song_genres} = artists;
+    const [isLiked, setIsLiked] = useState(false);
+    const handleClick = (id: string) => {
+        setIsLiked(!isLiked)
+        const formBody = encodeURIComponent("id") + '=' + encodeURIComponent(id);
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formBody
+        };
+        fetch(`${baseUrl}/interact/like?apikey=${APIKEY}`, requestOptions)
+            .then(response => response.json())
+            .then(data => console.log("posted data", ))
+            .catch(e => console.log(e))
+    }
+    
     const genres = song_genres.map((genre) => {
         return (
             <p key={genre.id}>{genre.name}</p>
@@ -46,10 +60,10 @@ const SongCard = ({artists}: CardProps) => {
                 </div>
                 <div className="likes-container">
                     <p>Likes: {likes}</p>
-                    <button type="submit"><i className="fa-solid fa-heart clicked"></i></button>
+                    <button type="submit" onClick={() => handleClick(id)}><i className={`fa-solid fa-heart ${isLiked ? "clicked" : "normal"}`}></i></button>
                 </div>
-                {/* music player here */}
             </div>
+            <AudioPlayer artists={artists}/>
         </StyledSongCard>
     );
 };
