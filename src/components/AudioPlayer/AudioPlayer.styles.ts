@@ -6,9 +6,14 @@ export const StyledAudioPlayer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid rgb(0,248,196);
-  padding: 0.5rem 1.5rem;
+  border: 1px solid rgba(0,248,196, 0.3);
+  padding: 0.75rem 1.5rem;
   border-radius: 50px;
+  background: rgba(0,0,0, 0.5);
+  margin-bottom: 1rem;
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
   & .audio-controls {
     font-family: 'Open Sans', sans-serif;
     background-color: white;
@@ -61,12 +66,109 @@ export const StyledAudioPlayer = styled.div`
  
   & .progress-container {
     display: flex;
+    align-items: center;
     width: 70%;
     & .progress-bar {
-      background: rgb(0,248,196);
+      position: relative;
+      --bar-bg: rgba(0,248,196, 0.35);
+      --before-width: 100px;
+      --before-color: rgba(0,248,196, 1);
+      --playhead: white;
+      --playhead-selected: rgba(0,248,196, 0.35);
+      appearance: none;
+      outline: none;
+      border: none;
+      background: var(--bar-bg);
       width: 80%;
-      border: 1px solid red;
-      padding: 0 1rem;
+      height: 10px;
+      margin: 0 1rem;
+      border-radius: 8px;
+      z-index: 0;
+    }
+    // safari
+    & .progress-bar::-webkit-slider-runnable-track {
+      appearance: none;
+      outline: none;
+      border: none;
+      background: var(--bar-bg);
+      width: 100%;
+      height: 10px;
+      margin: 0 1rem;
+      border-radius: 8px;
+    }
+    // firefox 
+    & .progress-bar::-moz-range-track {
+      appearance: none;
+      outline: none;
+      border: none;
+      background: var(--bar-bg);
+      width: 100%;
+      height: 10px;
+      margin: 0 1rem;
+      border-radius: 8px;
+    }
+    & .progress-bar::-moz-focus-outer {
+      border: 0;
+    }
+    // progress bar for chrome and safari
+    & .progress-bar::before {
+      content: "";
+      position: absolute;
+      height: 10px;
+      width: var(--before-width);
+      background-color: var(--before-color);
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+    }
+    // progress bar - firefox
+    & .progress-bar::-moz-range-progress {
+      content: "";
+      position: absolute;
+      height: 10px;
+      width: var(--before-width);
+      background-color: var(--before-color);
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+    }
+    // playhead -  for chrome and safari
+    & .progress-bar::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      z-index: 4;
+      height: 14px;
+      width: 14px;
+      border: none;
+      background: var(--playhead);
+      border-radius: 100%;
+      cursor: pointer;
+      box-shadow: 1px 1px 8px rgba(0, 0, 0, 1);
+    }
+    // while dragging playhead - chrome / safari
+    & .progress-bar:active::-webkit-slider-thumb {
+      transform: scale(1.2);
+      border: 2px solid var(--playhead-selected);
+    }
+    // while dragging playhead - firefox
+    & .progress-bar::-moz-range-thumb {
+      z-index: 4;
+      height: 14px;
+      width: 14px;
+      border: transparent;
+      background: var(--playhead);
+      border-radius: 100%;
+      cursor: pointer;
+      box-shadow: 1px 1px 8px rgba(0, 0, 0, 1);
+    }
+    & .progress-bar:active::-moz-range-thumb {
+      transform: scale(1.05);
+      border: 2px solid var(--playhead-selected);
     }
   }
   

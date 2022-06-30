@@ -28,7 +28,7 @@ export const StyledSongCard = styled.li`
     margin-bottom: 3rem;
     background-color: rgba(0, 0, 0, 1);
     color: rgb(0, 248, 196);
-    padding: clamp(1.5rem, 1.75vw, 2rem) clamp(1rem, 2vw, 3rem);
+    padding: clamp(1.5rem, 1.75vw, 2rem) clamp(1.5rem, 2vw, 3rem);
     font-size: clamp(0.75rem, 0.7vw, 1rem);
     overflow: hidden;
     z-index: 0;
@@ -134,9 +134,10 @@ export const StyledSongCard = styled.li`
         height: 50vw;
         object-fit: cover;
         border-radius: 8px;
-        border: 2px solid rgba(0, 248, 196, 0.75);
+        border: 1px solid rgba(0, 248, 196, 0.5);
         @media (min-width: 768px) {
             width: 25%;
+            max-height: 18vh;
             height: auto;
         }
         &:before {
@@ -161,15 +162,17 @@ export const StyledSongCard = styled.li`
             padding-bottom: 0;
             border-bottom: none; 
         }
-        & p {
+        & .genre-name {
             background-color: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem clamp(0.75rem, 0.9vw, 1.5rem);
+            padding: 0.5rem clamp(0.75rem, 0.9vw, 1rem);
             margin-right: 1rem;
             margin-top: 0.5rem;
             border-radius: 20px;
             color: white;
-            font-size: clamp(1.2rem, 1vw, 1.4rem);
             font-family: 'Open Sans', sans-serif;
+            font-weight: 500;
+            font-size: clamp(0.65rem, 1vw, 0.8rem);
+            letter-spacing: 0.025rem;
         }
     }
 `

@@ -33,7 +33,7 @@ const SongCard = ({artists}: CardProps) => {
     }
     const genres = song_genres.map((genre) => {
         return (
-            <p key={genre.id}>{genre.name}</p>
+            <h6 key={genre.id} className="genre-name">{genre.name} </h6>
         )
     });
     return (
