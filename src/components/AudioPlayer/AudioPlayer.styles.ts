@@ -9,6 +9,8 @@ export const StyledAudioPlayer = styled.div`
     margin-top: 0;
     margin-bottom: 1rem;
     display: flex;
-
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
   }
 `;

@@ -18,7 +18,7 @@ const SongCard = ({artists}: CardProps) => {
     const {id, name, artist_name, cover_image_path, likes, song_genres} = artists;
     const [isLiked, setIsLiked] = useState(false);
     const handleClick = (id: string) => {
-        setIsLiked(!isLiked)
+        
         const formBody = encodeURIComponent("id") + '=' + encodeURIComponent(id);
         const requestOptions = {
             method: 'POST',
@@ -27,10 +27,10 @@ const SongCard = ({artists}: CardProps) => {
         };
         fetch(`${baseUrl}/interact/like?apikey=${APIKEY}`, requestOptions)
             .then(response => response.json())
-            .then(data => console.log("posted data", ))
+            .then(data => console.log("posted data", data))
             .catch(e => console.log(e))
+        setIsLiked(!isLiked)
     }
-    
     const genres = song_genres.map((genre) => {
         return (
             <p key={genre.id}>{genre.name}</p>
@@ -59,8 +59,9 @@ const SongCard = ({artists}: CardProps) => {
                     <div className="genres">{genres}</div>
                 </div>
                 <div className="likes-container">
-                    <p>Likes: {likes}</p>
+                    <p>Like this?</p>
                     <button type="submit" onClick={() => handleClick(id)}><i className={`fa-solid fa-heart ${isLiked ? "clicked" : "normal"}`}></i></button>
+                    <p>Likes: {likes}</p>
                 </div>
             </div>
             <AudioPlayer artists={artists}/>

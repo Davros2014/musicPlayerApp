@@ -5,7 +5,9 @@ const StyledAppContainer = styled.div`
     width: 100vw;
     /* height: 100vh; */
     min-height: 100vh;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.9);
+        /* background-color: #e9e9e9; */
+
     z-index: 0;
     &:before {
         content: "";
@@ -16,7 +18,7 @@ const StyledAppContainer = styled.div`
         bottom: 0;
         width: 100%;
         height: 100%;
-        /* background-image: linear-gradient(0deg, #020024 0%, #000000 35%, rgb(0, 248, 196) 100%); */
+        background-image: linear-gradient(180deg, #020024 0%, #000000 35%, rgb(0, 248, 196) 100%);
         opacity: 0.2;
         z-index: -1;
     }

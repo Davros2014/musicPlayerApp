@@ -12,7 +12,7 @@ const bouncing = keyframes`
  70% { transform: scale(1.5); }
  80% { transform: scale(1); }
  90% { transform: scale(1.5); }
- 100% { transform: scale(1.65);  color: crimson; }
+ 100% { transform: scale(1.65); color: crimson; }
 `
 const heartbroken = keyframes`
  /* 0% { transform: scale(1.75); color: crimson; } */
@@ -24,7 +24,7 @@ export const StyledSongCard = styled.li`
     position: relative;
     width: 90vw;
     border-radius: 8px;
-    box-shadow: 1px 1px 4px 4px rgba(0, 0, 0, 0.125);
+    box-shadow: 1px 1px 8px 4px rgba(0, 0, 0, 0.125);
     margin-bottom: 3rem;
     background-color: rgba(0, 0, 0, 1);
     color: rgb(0, 248, 196);
@@ -38,7 +38,7 @@ export const StyledSongCard = styled.li`
     /* border: 1px solid rgba(255, 255, 255, 0.2); */
     background-size: cover;
     transition: all 0.35s ease-in-out;
-    @media (min-width: 980px) {
+    @media (min-width: 768px) {
         flex-direction: column;
         width: 60vw;
         border-radius: 16px;
@@ -60,12 +60,13 @@ export const StyledSongCard = styled.li`
         bottom: 0;
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(45deg, #020024 0%, rgb(0, 248, 196) 100%, #000000 100%);
+        background-image: linear-gradient(0deg, #020024 0%, rgb(0, 248, 196) 100%, #000000 100%);
         opacity: 0.2;
         z-index: -1;
     }
     & .song-container {
         display: flex;
+        position: relative;
         margin-bottom: 1rem;
         flex-direction: column;
         @media (min-width: 768px) {
@@ -97,14 +98,19 @@ export const StyledSongCard = styled.li`
             }
         }
         & .likes-container {
-            width: 10rem;
-            text-align: right;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            margin-top: calc(50vw + 3rem);
+            @media (min-width: 768px) {
+                margin-top: 0;
+            }
             & button {
                 outline: none;
                 background: none;
                 border: none;
                 & i {
-                    margin-top: 1rem;
+                    margin-top: 0.5rem;
                     color: white;
                     transition: all 0.35s ease-in-out;
                     &:hover {
@@ -125,11 +131,13 @@ export const StyledSongCard = styled.li`
     & img {
         position: relative;
         width: 100%;
-        height: auto;
+        height: 50vw;
+        object-fit: cover;
         border-radius: 8px;
         border: 2px solid rgba(0, 248, 196, 0.75);
         @media (min-width: 768px) {
-            width: 30%;
+            width: 25%;
+            height: auto;
         }
         &:before {
             content: "";
@@ -146,13 +154,21 @@ export const StyledSongCard = styled.li`
     & .genres {
         display: flex;
         width: 100%;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid white; 
+        @media (min-width: 768px) {
+            height: auto;
+            padding-bottom: 0;
+            border-bottom: none; 
+        }
         & p {
             background-color: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
+            padding: 0.5rem clamp(0.75rem, 0.9vw, 1.5rem);
             margin-right: 1rem;
+            margin-top: 0.5rem;
             border-radius: 20px;
             color: white;
-            font-size: clamp(0.85rem, 0.75vw, 1rem);
+            font-size: clamp(1.2rem, 1vw, 1.4rem);
             font-family: 'Open Sans', sans-serif;
         }
     }

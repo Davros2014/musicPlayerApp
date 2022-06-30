@@ -19,7 +19,8 @@ export type AppMusicProps = {
   music_file_path: string;
   song_genres: [{id: string; name: string}]
   song_release: string,
-  artist_name: string
+  artist_name: string,
+  musicData: [{data: any}]
 }
 
 const App = () => {
