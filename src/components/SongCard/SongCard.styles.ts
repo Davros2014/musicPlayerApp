@@ -15,7 +15,7 @@ const bouncing = keyframes`
  100% { transform: scale(1.65); color: crimson; }
 `
 const heartbroken = keyframes`
- /* 0% { transform: scale(1.75); color: crimson; } */
+ 0% { transform: scale(1.65); color: crimson; }
  100% { transform: scale(1); }
 
 `
@@ -24,6 +24,7 @@ export const StyledSongCard = styled.li`
     position: relative;
     width: 90vw;
     border-radius: 8px;
+    
     box-shadow: 1px 1px 8px 4px rgba(0, 0, 0, 0.125);
     margin-bottom: 3rem;
     background-color: rgba(0, 0, 0, 1);
@@ -42,6 +43,8 @@ export const StyledSongCard = styled.li`
         flex-direction: column;
         width: 60vw;
         border-radius: 16px;
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
     }
     @media (min-width: 1440px) {
         width: 40vw;
@@ -60,8 +63,9 @@ export const StyledSongCard = styled.li`
         bottom: 0;
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(0deg, #020024 0%, rgb(0, 248, 196) 100%, #000000 100%);
-        opacity: 0.2;
+        /* background-image: linear-gradient(0deg, #020024 0%, rgb(0, 248, 196) 100%, #000000 100%); */
+        background-image: linear-gradient(180deg,#110f37 0%,rgb(0,248,196) 100%);
+        opacity: 0.65;
         z-index: -1;
     }
     & .song-container {
@@ -102,6 +106,10 @@ export const StyledSongCard = styled.li`
             right: 0;
             text-align: center;
             margin-top: calc(50vw + 3rem);
+            display: flex;
+            border: 1px solid rgba(0,248,196, 0.3);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
             @media (min-width: 768px) {
                 margin-top: 0;
             }
@@ -110,7 +118,7 @@ export const StyledSongCard = styled.li`
                 background: none;
                 border: none;
                 & i {
-                    margin-top: 0.5rem;
+                    margin-right: 0.75rem;
                     color: white;
                     transition: all 0.35s ease-in-out;
                     &:hover {

@@ -6,8 +6,7 @@ const StyledAppContainer = styled.div`
     /* height: 100vh; */
     min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.9);
-        background-color: #e0ebd6;
-
+    background-color: #daded6;
     z-index: 0;
     &:before {
         content: "";
@@ -24,12 +23,12 @@ const StyledAppContainer = styled.div`
     }
     & h1 {
         padding-top: 6rem;
-        color: rgb(0, 248, 196);
         color: #3a4039;
         /* color: white; */
-        letter-spacing: 0.055rem;
-        font-size: clamp(1rem, 0.7vw, 2rem);
-        font-family: "Druk Wide Cy Web Medium";
+        /* letter-spacing: 0.055rem; */
+        font-size: clamp(1rem, 0.7vw, 1.6rem);
+        /* font-family: "Druk Wide Cy Web Medium"; */
+        font-family: 'Open Sans', sans-serif;
         text-align: center;
     }
 `

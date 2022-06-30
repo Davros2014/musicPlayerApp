@@ -10,9 +10,11 @@ export const StyledAudioPlayer = styled.div`
   padding: 0.75rem 1.5rem;
   border-radius: 50px;
   background: rgba(0,0,0, 0.5);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
   @media (min-width: 768px) {
     margin-bottom: 0;
+    margin-top: 1.5rem;
   }
   & .audio-controls {
     font-family: 'Open Sans', sans-serif;
@@ -34,15 +36,19 @@ export const StyledAudioPlayer = styled.div`
   & .controls-container {
       display: flex;
       width: 30%;
-    & .main-btn {
+      padding-right: 1rem;
+      & .main-btn {
       background: none;
-      width: 3rem;
-      height: 3rem;
-      border: 2px solid rgb(0,248,196);
+      width: clamp(1.75rem, 3vw, 3rem);
+      height: clamp(1.75rem, 3vw, 3rem);
+      border: 2px solid rgb(0, 248, 196);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 100px;
-      margin: 0 1rem;
+      margin: 0 clamp(0.5rem, 1vw, 1rem);
       cursor: pointer;
-      color: rgb(0,248,196);
+      color: rgb(0, 248, 196);
       transition: 0.2s color ease-in-out;
         &:hover {
           transition: 0.2s all ease-in-out;
@@ -63,7 +69,6 @@ export const StyledAudioPlayer = styled.div`
         }
     }
   }
- 
   & .progress-container {
     display: flex;
     align-items: center;
@@ -71,7 +76,7 @@ export const StyledAudioPlayer = styled.div`
     & .progress-bar {
       position: relative;
       --bar-bg: rgba(0,248,196, 0.35);
-      --before-width: 100px;
+      --before-width: 0;
       --before-color: rgba(0,248,196, 1);
       --playhead: white;
       --playhead-selected: rgba(0,248,196, 0.35);
@@ -87,13 +92,11 @@ export const StyledAudioPlayer = styled.div`
     }
     // safari
     & .progress-bar::-webkit-slider-runnable-track {
-      appearance: none;
       outline: none;
       border: none;
       background: var(--bar-bg);
       width: 100%;
       height: 10px;
-      margin: 0 1rem;
       border-radius: 8px;
     }
     // firefox 
@@ -145,6 +148,7 @@ export const StyledAudioPlayer = styled.div`
       height: 14px;
       width: 14px;
       border: none;
+      margin-top: -2px;
       background: var(--playhead);
       border-radius: 100%;
       cursor: pointer;
@@ -170,6 +174,5 @@ export const StyledAudioPlayer = styled.div`
       transform: scale(1.05);
       border: 2px solid var(--playhead-selected);
     }
-  }
-  
+  } 
 `;

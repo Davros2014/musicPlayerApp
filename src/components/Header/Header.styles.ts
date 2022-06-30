@@ -39,6 +39,10 @@ export const StyledHeader = styled.header`
             margin-left: 2rem;
             padding: 0.5rem 0;
             border-bottom: 2px solid transparent;
+            color: #3a4039;
+            font-size: clamp(1rem, 0.7vw, 1.6rem);
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 500;
             cursor: pointer;
             &:hover {
                 padding: 0.5rem 0;

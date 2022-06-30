@@ -59,7 +59,6 @@ const SongCard = ({artists}: CardProps) => {
                     <div className="genres">{genres}</div>
                 </div>
                 <div className="likes-container">
-                    <p>Like this?</p>
                     <button type="submit" onClick={() => handleClick(id)}><i className={`fa-solid fa-heart ${isLiked ? "clicked" : "normal"}`}></i></button>
                     <p>Likes: {likes}</p>
                 </div>
