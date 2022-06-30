@@ -16,14 +16,11 @@ const AudioPlayer = ({ artists }: AudioProps) => {
   // ref for audio player
   const audioPlayerRef = useRef<HTMLAudioElement>(null);
   const progressBarRef = useRef<HTMLInputElement>(null)
-  const progressBar = useRef<HTMLInputElement>(null);
 
   useEffect(()=> {
-    console.log(audioPlayerRef)
     const seconds = Math.floor(duration);
     setSongDuration(seconds);
-    progressBarRef.current!.max = seconds;
-    progressBar.current!.max = seconds;
+    // progressBarRef.current!.max = seconds;
   }, [duration])
 
   const calcTime = (secs: number) => {
@@ -44,15 +41,15 @@ const AudioPlayer = ({ artists }: AudioProps) => {
      } 
   } 
 
-  const changeRange = () => {
-    audioPlayerRef.current!.currentTime = progressBarRef.current!.value;
-    changePlayerCurrentTime();
-  }
+  // const changeRange = () => {
+  //   audioPlayerRef.current!.currentTime = progressBarRef.current!.value;
+  //   changePlayerCurrentTime();
+  // }
 
-  const changePlayerCurrentTime = () => {
-    progressBarRef.current!.style.setProperty('--before-width', `${progressBarRef.current.value / duration * 100}%`);
-    setCurrentTime(progressBarRef.current!.value);
-  }
+  // const changePlayerCurrentTime = () => {
+  //   progressBarRef.current!.style.setProperty('--before-width', `${progressBarRef.current.value / duration * 100}%`);
+  //   setCurrentTime(progressBarRef.current!.value);
+  // }
 
   
 

@@ -26,7 +26,7 @@ export type AppMusicProps = {
 
 const App = () => {
   const [musicData, setMusicData] = useState<AppMusicProps[]>([]);
-  console.log("musicData", musicData)
+  // console.log("musicData", musicData)
     useEffect(() => {
       const fetchUsers = async () => {
         const users = await getData<AppMusicProps[]>(`${baseUrl}/song/trending`);
